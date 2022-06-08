@@ -1,0 +1,444 @@
+/*FLEXBOX: https://origamid.com/projetos/flexbox-guia-completo/*/
+/*UNDRAW: https://undraw.co/illustrations*/
+/*GRID https://www.origamid.com/projetos/css-grid-layout-guia-completo/*/
+/*Criando uma varíavel*/
+:root{
+    --primary-color: #313030;
+    --gap: 3rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+html{
+    /*Para usar o REM: 1rem = 10px*/
+    font-size: 62.5%;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+body {
+    /*Fonte para todo o projeto*/
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2.5rem;
+    /*Aplicando a variável*/
+    color: var(--primary-color);
+}
+h1{
+    font-size: 6.5rem;
+    text-transform: uppercase;
+    line-height: 1;
+}
+h2{
+    font-size: 5rem;
+    line-height: 1;
+}
+a{
+    text-decoration: none;
+}
+/*------------------------------------------------------------------------------*/
+/*MENU*/
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+aside{
+    border-bottom: 0.1rem solid var(--primary-color);
+    z-index: 1;
+}
+.menu h1{
+    font-size: 2.3rem;
+}
+.menu h1 a{
+    color: var(--primary-color);
+    text-decoration: none;
+}
+/*Separa o menu com a logo*/
+aside .menu-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+
+}
+/*Modifica a lista diretamente*/
+.menu ul{
+    list-style: none;
+    display: flex;
+
+}
+
+/*Modifica os links diretamente*/
+.menu ul li a{
+    /*Para conseguir fazer as modificações de padding*/
+    display: block;
+    padding: 1rem; 
+    position: relative;
+    color: #313030;
+    font-size: 2rem;
+}
+/*Lista animada*/
+nav ul li a:after{
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 40%;
+    width: 0%;
+    height: 0.2rem;
+    background-color: rgb(23, 55, 160);
+    transition: all 300ms ease-in-out;
+}
+nav ul li a:hover:after{
+    width: 50%;
+    left: 25%;
+}
+/*-----------------------------------------------------------------------*/
+.spacing{
+    height: 3rem;
+    width: 100%;
+}
+/*Background principal de fundo*/
+.main-bg{
+    /*Background é uma imagem svg (svg backgrounds)*/
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M0%2c389.877C104.201%2c389.593%2c205.245%2c511.379%2c297.452%2c462.844C387.368%2c415.515%2c353.912%2c273.331%2c396.599%2c181.121C439.609%2c88.213%2c563.142%2c22.465%2c548.205%2c-78.82C533.257%2c-180.175%2c396.792%2c-208.295%2c327.975%2c-284.192C261.362%2c-357.659%2c245.546%2c-484.534%2c151.583%2c-516.245C57.802%2c-547.894%2c-35.651%2c-472.052%2c-128.699%2c-438.309C-215.47%2c-406.842%2c-309.277%2c-389.702%2c-375.28%2c-325.182C-444.208%2c-257.803%2c-495.124%2c-168.394%2c-503.086%2c-72.333C-510.861%2c21.466%2c-451.578%2c102.971%2c-418.058%2c190.921C-381.886%2c285.831%2c-390.21%2c420.823%2c-298.497%2c464.47C-203.976%2c509.453%2c-104.679%2c390.163%2c0%2c389.877' fill='%230b2239'%3e%3c/path%3e%3cpath d='M1440 892.716C1500.667 883.1890000000001 1544.85 836.24 1599.388 808.012 1661.045 776.1 1753.999 779.705 1781.505 715.96 1809.1399999999999 651.9159999999999 1748.412 584.513 1724.025 519.163 1704.911 467.944 1690.304 415.443 1654.079 374.499 1618.102 333.83500000000004 1569.483 310.149 1519.777 288.306 1463.438 263.548 1405.734 225.26799999999997 1345.748 239.007 1285.212 252.872 1250.826 313.946 1208.68 359.56 1165.071 406.759 1115.386 449.456 1094.996 510.396 1072.2640000000001 578.336 1059.826 654.889 1087.798 720.845 1115.997 787.336 1179.922 832.017 1244.83 863.691 1305.162 893.1320000000001 1373.681 903.131 1440 892.716' fill='%23113255'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-size: cover;
+}
+/*Background secundario branco*/
+.white-bg{
+    background-color: rgb(250, 250, 250);
+}
+.main-content{
+    /*Largura máxima do conteúdo do site*/
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: var(--gap);
+}
+/*Determinar altura minima da página*/
+.pagina{
+    min-height: 100vh;
+    width: 100vw;
+}
+/*PÁGINA INTRO*/
+.intro-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+}
+/*Determinar o conteudo texto da pagina intro*/
+.intro-text{
+    display: flex;
+    flex: 0.5;
+    flex-direction: column;
+}
+section .intro-text h1, p{
+    color: white;
+}
+.intro-img img{
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    max-height: 30rem;
+}
+/*PRIMEIRA PÁGINA*/
+#intro p{
+    color: var(--primary-color);
+}
+/*Container da página*/
+section .pagina1{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 64rem;
+    text-align: center;
+}
+/*Título da página 1*/
+.pagina1 h2{
+    margin-top: 4.5rem;
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+}
+/*Paragráfos da página 1*/
+.pagina1 p{
+    margin-bottom: 2rem;
+    font-size: 2.4rem;
+}
+/*SEGUNDA PÁGINA*/
+/*h2 e descrição*/
+.container-um{
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 10rem;
+}
+.container-um h2{
+    margin-bottom: 1rem;
+    font-size: 7rem;
+    color: white;
+}
+.container-um p{
+    margin-bottom: 3rem;
+    font-size: 2.3rem;
+}
+/*Colunas*/
+.container-dois{
+    display: flex;
+    flex-flow: row; 
+    gap: 4rem;
+}
+.container-dois article{
+    display: flex;
+    flex-direction: column;
+}
+.container-dois h3{
+    font-size: 4rem;
+    color: white;
+}
+.container-dois p{
+    font-size: 2.2rem;
+}
+/*TERCEIRA PÁGINA*/
+/*Container h2 e p*/
+.container-intro-galeria{
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+    left: 0.5rem;
+}
+.container-intro-galeria p{
+    color: var(--primary-color);
+    font-size: 2.3rem;
+    margin-bottom: 3rem;
+}
+.container-intro-galeria h2{
+    margin-top: 9rem;
+    font-size: 7rem;
+    margin-bottom: 1rem;
+}
+/*Container grid*/
+.container-galeria-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 1rem;
+
+}
+/*Div da grid*/
+.container-galeria-grid div{
+    width: 100%;
+    max-width: 36rem;
+    max-height: 36rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+/*Transição da imagem (DELAY na trans)*/
+.container-galeria-grid div img{
+    transition: all 300ms ease-in-out;
+}
+/*Quando eu passar o mouse*/
+.container-galeria-grid div img:hover{
+    transform: translate(-3%,3%) scale(1.2);
+}
+/*PÁGINA QUATRO*/
+section #Precos p{
+    color: var(--primary-color);
+}
+section #Precos{
+    min-height: 1rem;
+}
+/*DIV da Tabela*/
+section .tabela-responsiva{
+    display: flex;
+    /*Ajusta a div sempre ao meio da página*/
+    margin: 0 auto;
+    flex-flow: column nowrap;
+    max-width: 64rem;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+/*TABELA*/
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 2rem;
+}
+/*Conteúdo individual da Tabela */
+table td, table th{
+    border: 0.1rem solid lightgray;
+    padding: 0.7rem;
+}
+table th, tfoot td{
+    background-color: lightgray;
+}
+/*Caption da tabela*/
+table caption{
+    font-style: italic;
+    text-align: left;
+    font-size: 1.6rem;
+}
+/*PÁGINA CINCO*/
+.text-pagina5 p{
+    font-size: 2rem;
+}
+.pagina5{
+    padding: 0;
+}
+/*Formulário*/
+/*Container de fora do formulário*/
+.container-contactform{
+    display: flex;
+    max-width: 84rem;
+    margin: 0 auto;
+}
+.contact-form{
+    color: white;
+    width: 100%;
+}
+div .contact-form fieldset{
+/*Container dentro do formulário*/
+    border: none;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.5rem;
+}
+.contact-form fieldset .form-group{
+    flex: 1 1 32rem;
+}
+/*Caption do forms*/
+fieldset legend{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-style: italic;
+}
+/*Título do formulário: First name, last name*/
+.form-group label{
+    /*Quebra a linha*/
+    display: block;
+}
+/*Quadrado de seleção*/
+.form-group input, .form-group textarea{
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    font-size: 2rem;
+}
+/*Mensagem vira largura máxima da div*/
+.container-contactform div fieldset .largura-maxima{
+    width: 100%;
+    flex: 1 1 100%;
+}
+/*Botão*/
+.form-group button{
+    border: 0.5rem solid white;
+    color: white;
+    background: none;
+    padding: 1.5rem 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+
+}
+.form-group button:hover{
+    background: white;
+    color: rgb(11, 43, 112);
+}
+/*FOOTER*/
+footer .footers a, footer a p{
+    display: flex;
+    justify-content: center;
+    color: rgb(11, 43, 112);
+    font-size: 1.5rem;
+    background-color: white;
+}
+footer img{
+    height: 2.3rem;
+    width: 2.3rem;
+}
+/*Esconde a checkbox do menu mobile*/
+.close-menu{
+    display: none;
+}
+/*Media Query*/
+/*Abaixo de 1000px transforma em colunas para caber*/
+@media (max-width:1000px){
+    .intro-content{
+        flex-flow: column nowrap;
+    }
+    .container-dois{
+        flex-flow: column nowrap;
+    }
+    .container-galeria-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+    /*Menu Mobile*/
+    /*Organizando o menu no meio da tela*/
+    .menu{
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.986);
+    }
+    .menu-content, .menu-content ul{
+        flex-direction: column;
+        text-align: center;
+
+    }
+    aside .menu-content{
+        height: 100vh;
+        justify-content: center;
+    }
+    .menu{
+        /*Menu não aparece*/
+        display: none;
+    }
+    /*Criando o close menu*/
+    .close-menu{
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+    }
+    /*Criando as 3 linhas para clicar e ativar o checkbox*/
+    .close-menu-label::after{
+        content: '≡';
+        position: fixed;
+        z-index: 2;
+        top: 2rem;
+        right: 3rem;
+        color: rgb(70, 67, 67);
+        background-color: white;
+        text-align: center;
+        width: 3rem;
+        height: 3rem;
+        line-height: 3rem;
+        font-size: 3rem;
+        border-radius: 1.2rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        border: 0.1rem solid lightgray;
+    }
+    /*Quando o Close-menu estiver checked o menu aparece*/
+    .close-menu:checked~.menu{
+        display: block;
+    }
+    /*Quando o Close-menu estiver checked o label muda*/
+    /*After serve para aplicar o content*/
+    .close-menu:checked~.close-menu-label::after{
+        content: '×';
+    }
+    /*Retira o espaçamento da div home no mobile*/
+    .spacing{
+        display: none;
+    }
+}
+/*Abaixo de 600px transforma galeria em 1 coluna*/
+@media (max-width:600px){
+    .container-galeria-grid{
+        grid-template-columns: 1fr;
+    }
+}
